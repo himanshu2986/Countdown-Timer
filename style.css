@@ -1,0 +1,208 @@
+/* Basic reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+    sans-serif;
+}
+
+body {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(135deg, #111827, #1f2933);
+  color: #f9fafb;
+}
+
+/* Main app container */
+.app {
+  width: 100%;
+  max-width: 900px;
+  background: rgba(15, 23, 42, 0.95);
+  border-radius: 18px;
+  padding: 24px 20px 16px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+}
+
+/* Header */
+header {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+header h1 {
+  font-size: 2rem;
+  margin-bottom: 4px;
+}
+
+header p {
+  font-size: 0.95rem;
+  color: #9ca3af;
+}
+
+/* Form */
+.timer-form {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 12px 16px;
+  align-items: end;
+  margin-bottom: 20px;
+  padding: 12px 14px;
+  border-radius: 14px;
+  background: rgba(15, 23, 42, 0.8);
+  border: 1px solid rgba(75, 85, 99, 0.7);
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.field label {
+  font-size: 0.8rem;
+  color: #9ca3af;
+}
+
+.field input {
+  padding: 8px 10px;
+  border-radius: 10px;
+  border: 1px solid #4b5563;
+  background: #020617;
+  color: #f9fafb;
+}
+
+.field input:focus {
+  outline: none;
+  border-color: #60a5fa;
+}
+
+/* Start button */
+#addTimerBtn {
+  padding: 10px 14px;
+  border-radius: 999px;
+  border: none;
+  background: #2563eb;
+  color: #f9fafb;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.1s ease, box-shadow 0.1s ease, background 0.1s ease;
+}
+
+#addTimerBtn:hover {
+  background: #1d4ed8;
+  transform: translateY(-1px);
+  box-shadow: 0 8px 18px rgba(37, 99, 235, 0.5);
+}
+
+/* Timers list */
+.timers-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 14px;
+}
+
+/* Timer card */
+.timer-card {
+  background: #020617;
+  border-radius: 16px;
+  padding: 14px 14px 12px;
+  border: 1px solid #4b5563;
+  position: relative;
+  overflow: hidden;
+}
+
+.timer-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at top left, rgba(59, 130, 246, 0.35), transparent);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+
+.timer-card:hover::before {
+  opacity: 1;
+}
+
+.timer-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 6px;
+}
+
+.timer-title {
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.timer-date {
+  font-size: 0.7rem;
+  color: #9ca3af;
+  margin-bottom: 6px;
+}
+
+.timer-remaining {
+  font-size: 1.1rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  margin-bottom: 4px;
+}
+
+.timer-status {
+  font-size: 0.8rem;
+  color: #9ca3af;
+}
+
+/* Delete button */
+.delete-btn {
+  border: none;
+  background: transparent;
+  color: #9ca3af;
+  cursor: pointer;
+  font-size: 0.8rem;
+  padding: 2px 6px;
+  border-radius: 999px;
+  transition: background 0.1s ease, color 0.1s ease;
+}
+
+.delete-btn:hover {
+  background: rgba(148, 163, 184, 0.15);
+  color: #e5e7eb;
+}
+
+/* When timer is finished */
+.timer-card.finished {
+  border-color: #22c55e;
+  animation: pulse 1s ease-in-out infinite;
+}
+
+.timer-card.finished .timer-status {
+  color: #22c55e;
+  font-weight: 600;
+}
+
+/* Pulse animation for visual effect when time is up */
+@keyframes pulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.4);
+  }
+  70% {
+    box-shadow: 0 0 0 12px rgba(34, 197, 94, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(34, 197, 94, 0);
+  }
+}
+
+/* Footer */
+footer {
+  margin-top: 16px;
+  text-align: center;
+  font-size: 0.75rem;
+  color: #6b7280;
+}

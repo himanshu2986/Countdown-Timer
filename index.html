@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Countdown Timer</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="app">
+    <header>
+      <h1>Countdown Timer</h1>
+      <p>Set a date and time to start a live countdown.</p>
+    </header>
+
+    <!-- Timer Form -->
+    <form id="timerForm" class="timer-form">
+      <div class="field">
+        <label for="title">Event Title</label>
+        <input
+          type="text"
+          id="title"
+          placeholder="e.g. New Year, Exam, Birthday"
+        />
+      </div>
+
+      <div class="field">
+        <label for="datetime">Target Date &amp; Time</label>
+        <input type="datetime-local" id="datetime" required />
+      </div>
+
+      <button type="submit" id="addTimerBtn">Start Countdown</button>
+    </form>
+
+    <!-- List of all countdowns -->
+    <section id="timersContainer" class="timers-container">
+      <!-- Timer cards will be added here dynamically -->
+    </section>
+
+    <footer>
+      <p>Built using HTML, CSS &amp; JavaScript</p>
+    </footer>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
